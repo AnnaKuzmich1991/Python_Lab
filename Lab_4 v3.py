@@ -14,24 +14,24 @@ class House:
         self.lifetime = lifetime # Динамическое поле
         House.id += 1
     
-    @classmethod
-    def id_increase(cls, num_houses):
+    @classmethod #метод класса id_increase, который увеличивает статическое поле id на заданное число
+    def id_increase(cls, num_houses): 
         cls.id += num_houses
     
-    def get_num_flat(self):
+    def get_num_flat(self): #метод объекта get_num_flat который возвращает значение инкапсулированного поля __num_flat
         return self.__num_flat
     
-    def set_num_flat(self, num_flat):
+    def set_num_flat(self, num_flat): #метод объекта set_num_flat, который устанавливает новое значение для инкапсулированного поля __num_flat
         if num_flat < 1:
             print("Ошибка! Номер квартиры должен быть больше 0")
         else:
             self.__num_flat = num_flat
     
-    @staticmethod
-    def calculate_age(lifetime):
+    @staticmethod #это декоратор для метода, который позволяет определить метод как статический (т.е. не связанный с объектом класса)
+    def calculate_age(lifetime): #статический метод, который принимает дату постройки здания и вычисляет возраст здания на текущий год, который закодирован в методе (2023)
         return 2023 - lifetime
     
-    def __str__(self):
+    def __str__(self): #метод класса, который возвращает строковое представление объекта
         return f"{self.__num_flat} квартира, {self.num_rooms} комнат, {self.square} кв. м, {self.floor} этаж, " \
                f"ул. {self.street}, {self.building_type}, {self.lifetime} г. постройки"
 
